@@ -15,9 +15,42 @@ Serving the HTML pages.
 Testing the webserver
 
 ## PROGRAM:
-
-
+~~~
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>My webserver</title>
+</head>
+<body>
+<h1>1.Django</h1>
+<h1>2.MEAN Stack</h1>
+<h1>3.MERN Stack</h1>
+<h1>4.ASP.NET core</h1>
+<h1>5.Spring Framework</h1>
+</body>
+</html>
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8080)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
+~~~
 ## OUTPUT:
+### client side output
+![output1](wt.png)
+
+### server side output
+![output](./wt1.png)
 
 
 ## RESULT:
+A simple webserver is created.

@@ -49,7 +49,7 @@ httpd.serve_forever()
 ![output1](wt.png)
 
 ### server side output
-![output](./wt1.png)
+![output](![Uploading wt1.png…]())
 
 
 ## RESULT:
